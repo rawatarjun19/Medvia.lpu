@@ -1,0 +1,69 @@
+.voice-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.mic-button {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  border: none;
+  background: #2A6F6B;
+  color: #FFFFFF;
+  font-size: 34px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(42, 111, 107, 0.35);
+  transition: transform 0.15s ease;
+}
+
+.mic-button:hover {
+  transform: scale(1.05);
+}
+
+.voice-status {
+  font-size: 16px;
+  color: #234E4A;
+  text-align: center;
+}
+
+.voice-status.listening {
+  color: #2A6F6B;
+  font-weight: 600;
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.voice-status.error {
+  color: #B3261E;
+}
+
+.voice-confirm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 300px;
+}
+
+.voice-transcript {
+  background: #FFFFFF;
+  border: 2px solid #2A6F6B;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-size: 18px;
+  color: #234E4A;
+  text-align: center;
+  width: 100%;
+}
+
+.voice-confirm-buttons {
+  display: flex;
+  gap: 10px;
+}

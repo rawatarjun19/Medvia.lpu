@@ -1,0 +1,114 @@
+:root {
+  --bg: #f8f9fa;
+  --grid-line: #e2e8f0;
+  --ink: #1a202c;
+  --muted: #718096;
+  --accent: #2f6f62;
+  --accent-ink: #ffffff;
+  --card-bg: #ffffff;
+  --border: #cbd5e0;
+  --error: #e53e3e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+  background-color: var(--bg);
+  /* Ye raha tumhara graph-paper wala grid background */
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.shell {
+  min-height: 100vh;
+  padding: 48px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.shell.centered {
+  align-items: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.card.wide {
+  max-width: 640px;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 3px;
+}
+
+.tab {
+  flex: 1;
+  padding: 8px 0;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.tab.active {
+  background: var(--card-bg);
+  color: var(--ink);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  font-weight: 600;
+}
+
+button {
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+button.ghost {
+  background: var(--card-bg);
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  font-weight: 500;
+}
+
+button.ghost:hover {
+  background: rgba(47, 111, 98, 0.05);
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

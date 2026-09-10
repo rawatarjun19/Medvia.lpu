@@ -1,0 +1,130 @@
+.consent-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #F0F6F4 0%, #E4EFEA 100%);
+  padding: 24px;
+  font-family: system-ui, "Noto Sans", "Noto Sans Devanagari", "Noto Sans Gurmukhi", sans-serif;
+}
+
+.consent-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 32px 28px;
+  width: 340px;
+  box-shadow: 0 8px 24px rgba(35, 78, 74, 0.12);
+}
+
+.consent-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.consent-heading {
+  color: #234E4A;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.consent-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  font-weight: 500;
+  color: #234E4A;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.abha-input {
+  font-size: 20px;
+  letter-spacing: 1px;
+  padding: 14px;
+  margin-top: 8px;
+  border-radius: 12px;
+  border: 2px solid #D8E6E2;
+  background: #F7FBFA;
+  color: #234E4A;
+  transition: border-color 0.15s ease;
+}
+
+.abha-input:focus {
+  outline: none;
+  border-color: #2A6F6B;
+}
+
+.consent-info {
+  background: #F0F6F4;
+  border-left: 4px solid #2A6F6B;
+  border-radius: 10px;
+  padding: 16px 18px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #3A4A48;
+  margin-bottom: 20px;
+}
+
+.consent-info p {
+  margin: 0 0 8px 0;
+}
+
+.consent-info p:last-child {
+  margin-bottom: 0;
+}
+
+.consent-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  color: #234E4A;
+  width: 100%;
+  margin-bottom: 18px;
+  cursor: pointer;
+}
+
+.consent-checkbox input {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  accent-color: #2A6F6B;
+  flex-shrink: 0;
+}
+
+.consent-error {
+  color: #B3261E;
+  font-size: 14px;
+  background: #FDECEA;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+}
+
+.consent-button {
+  width: 100%;
+  font-size: 19px;
+  font-weight: 600;
+  padding: 16px;
+  border-radius: 999px;
+  border: none;
+  background: #2A6F6B;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.consent-button:hover {
+  background: #234E4A;
+  transform: scale(1.02);
+}
+
+.consent-button:focus-visible {
+  outline: 3px solid #E8A652;
+  outline-offset: 2px;
+}

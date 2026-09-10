@@ -1,0 +1,37 @@
+.thankyou-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #F0F6F4 0%, #E4EFEA 100%);
+  padding: 24px;
+  font-family: system-ui, "Noto Sans", "Noto Sans Devanagari", "Noto Sans Gurmukhi", sans-serif;
+}
+
+.thankyou-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 40px 32px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(35, 78, 74, 0.12);
+}
+
+.thankyou-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.thankyou-heading {
+  color: #234E4A;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.thankyou-subtext {
+  color: #db0b0b;
+  font-size: 16px;
+  line-height: 1.6;
+}

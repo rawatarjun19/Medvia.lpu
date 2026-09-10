@@ -1,0 +1,18 @@
+.speak-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #2A6F6B;
+  background: #FFFFFF;
+  color: #2A6F6B;
+  font-size: 18px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+}
+
+.speak-button:hover {
+  background: #E4EFEA;
+}

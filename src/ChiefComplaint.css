@@ -1,0 +1,36 @@
+.complaint-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #F0F6F4 0%, #E4EFEA 100%);
+  padding: 24px;
+  font-family: system-ui, "Noto Sans", "Noto Sans Devanagari", "Noto Sans Gurmukhi", sans-serif;
+}
+
+.complaint-heading {
+  color: #234E4A;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.complaint-button {
+  width: 280px;
+  font-size: 19px;
+  font-weight: 500;
+  padding: 16px;
+  margin: 8px 0;
+  border-radius: 999px;
+  border: 2px solid #2A6F6B;
+  background: #FFFFFF;
+  color: #234E4A;
+  cursor: pointer;
+}
+
+.complaint-button:hover {
+  background: #2A6F6B;
+  color: #FFFFFF;
+}
