@@ -1,0 +1,51 @@
+.lang-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #F0F6F4 0%, #E4EFEA 100%);
+  padding: 24px;
+  font-family: system-ui, "Noto Sans", "Noto Sans Devanagari", "Noto Sans Gurmukhi", sans-serif;
+}
+
+.lang-heading {
+  color: #234E4A;
+  font-size: 26px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 36px;
+}
+
+.lang-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 280px;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 18px 28px;
+  margin: 10px 0;
+  border-radius: 999px;
+  border: 2px solid #2A6F6B;
+  background: #FFFFFF;
+  color: #234E4A;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.lang-button:hover {
+  transform: scale(1.03);
+}
+
+.lang-button.selected {
+  background: #2A6F6B;
+  color: #FFFFFF;
+}
+
+.lang-button:focus-visible {
+  outline: 3px solid #E8A652;
+  outline-offset: 2px;
+}
