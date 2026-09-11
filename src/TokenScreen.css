@@ -1,0 +1,49 @@
+.token-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #F0F6F4 0%, #E4EFEA 100%);
+  padding: 24px;
+  font-family: system-ui, "Noto Sans", sans-serif;
+}
+
+.token-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 40px 32px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(35, 78, 74, 0.12);
+}
+
+.token-label {
+  color: #5A6D6B;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.token-number {
+  color: #2A6F6B;
+  font-size: 56px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+}
+
+.token-subtext {
+  color: #5A6D6B;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.token-button {
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 14px;
+  border-radius: 999px;
+  border: none;
+  background: #2A6F6B;
+  color: #FFFFFF;
+  cursor: pointer;
+}

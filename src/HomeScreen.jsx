@@ -59,7 +59,7 @@ const HomeScreen = (props) => {
             A multilingual, voice-enabled patient intake system, built to serve every citizen in their own language.
           </p>
 
-          <div className="home-actions" style={{ display: "flex", justifyContent: "center", gap: "12px", flexWrap: "wrap" }}>
+          <div className="home-actions" style={{ display: "flex", justifyContent: "center", gap: "12px", flexWrap: "wrap", position: "relative", zIndex: 10 }}>
             <button className="home-btn primary" onClick={props.onStart} style={{cursor: "pointer"}}>
               Start Patient Check-in
             </button>
@@ -70,12 +70,29 @@ const HomeScreen = (props) => {
             >
               🌿 AYUSH Check-in
             </button>
-            <button className="home-btn secondary ghost" onClick={props.onAbout}>
-              About
-            </button>
-            <button className="home-btn secondary ghost" onClick={props.onDashboard}>
-              Hospital Dashboard
-            </button>
+            
+            {/* Foolproof Direct Link with high z-index */}
+            <a 
+  href="https://probackendmedvia.netlify.app/" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  className="home-btn secondary ghost"
+  style={{ 
+    display: "inline-flex", 
+    alignItems: "center", 
+    justifyContent: "center", 
+    textDecoration: "none", 
+    cursor: "pointer",
+    position: "relative",
+    zIndex: 9999,
+    pointerEvents: "auto",
+    backgroundColor: "#0B3B60",
+    color: "#FFFFFF",
+    borderColor: "#0B3B60"
+  }}
+>
+  Hospital Dashboard ↗
+</a>
           </div>
         </main>
 
@@ -115,6 +132,12 @@ const HomeScreen = (props) => {
 
         <footer className="home-footer" style={{ textAlign: "center", marginTop: "32px", borderTop: "1px solid var(--border)", paddingTop: "16px" }}>
           <p className="muted" style={{ fontSize: "0.75rem" }}>Government of India · Ministry of Health and Family Welfare (Prototype) · {new Date().getFullYear()}</p>
+          <button
+            onClick={props.onAbout}
+            style={{ background: "none", border: "none", color: "#00fef1", fontSize: "11px", textDecoration: "underline", cursor: "pointer", marginTop: "6px", padding: 0 }}
+          >
+            About this project
+          </button>
         </footer>
       </div>
     </div>

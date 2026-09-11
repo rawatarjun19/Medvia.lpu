@@ -1,7 +1,7 @@
 import AutoText from "./AutoText";
 import "./ThankYouScreen.css";
 
-function ThankYouScreen({ lang }) {
+function ThankYouScreen({ lang, token }) {
   return (
     <div className="thankyou-container">
       <div className="thankyou-card">
@@ -18,6 +18,15 @@ function ThankYouScreen({ lang }) {
         <p className="thankyou-subtext">
           <AutoText text="Your responses have been recorded. Please wait, a staff member will assist you shortly." langCode={lang} />
         </p>
+
+        {token && (
+          <div className="thankyou-token">
+            <p className="thankyou-token-label">
+              <AutoText text="Your token number" langCode={lang} />
+            </p>
+            <p className="thankyou-token-number">#{token}</p>
+          </div>
+        )}
       </div>
     </div>
   );

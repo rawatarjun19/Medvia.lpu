@@ -35,3 +35,21 @@
   font-size: 16px;
   line-height: 1.6;
 }
+.thankyou-token {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #D8DEDD;
+}
+
+.thankyou-token-label {
+  color: #5A6D6B;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.thankyou-token-number {
+  color: #2A6F6B;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0;
+}
