@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import i18n from "./i18n"; // Ye line zaroori hai
 import { supabase } from "./supabaseClient";
 import HomeScreen from "./HomeScreen";
 import AboutScreen from "./AboutScreen";
@@ -11,7 +12,6 @@ import ThankYouScreen from "./ThankYouScreen";
 import AyushAssessment from "./AyushAssessment";
 
 function App() {
-  const { i18n } = useTranslation();
   const [step, setStep] = useState("home");
   const [mode, setMode] = useState("regular");
   const [complaintId, setComplaintId] = useState(null);
@@ -29,7 +29,8 @@ function App() {
   }
 
   function handleLanguageSelect(code) {
-    i18n.changeLanguage(code);
+    const targetLang = code === "other" ? "en" : code;
+    i18n.changeLanguage(targetLang);
     setStep("consent");
   }
 
@@ -65,13 +66,11 @@ function App() {
   }
 
   async function handleQuestionsFinish(allAnswers) {
-    console.log("Sab answers:", allAnswers);
     await saveAnswersToDatabase(allAnswers, "intake_conversation");
     setStep("done");
   }
 
   async function handleAyushFinish(ayushAnswers) {
-    console.log("AYUSH answers:", ayushAnswers);
     await saveAnswersToDatabase(ayushAnswers, "ayush_assessment");
     setStep("done");
   }

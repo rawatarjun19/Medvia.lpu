@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
 import { supabase } from "./supabaseClient";
+import AutoText from "./AutoText";
 import "./ConsentScreen.css";
 
-function ConsentScreen({ onComplete }) {
-  const { t } = useTranslation();
+function ConsentScreen({ lang, onComplete }) {
   const [abhaId, setAbhaId] = useState("");
   const [agreed, setAgreed] = useState(false);
   const [error, setError] = useState("");
@@ -17,11 +16,11 @@ function ConsentScreen({ onComplete }) {
 
   async function handleContinue() {
     if (abhaId.length !== 14) {
-      setError(t("errorAbha"));
+      setError("errorAbha");
       return;
     }
     if (!agreed) {
-      setError(t("errorConsent"));
+      setError("errorConsent");
       return;
     }
 
@@ -38,7 +37,7 @@ function ConsentScreen({ onComplete }) {
       onComplete(tokenNumber, patientId);
     } catch (err) {
       console.error("Token generation failed:", err.message);
-      onComplete(null, null);
+      setError("errorGeneric");
     }
   }
 
@@ -61,24 +60,25 @@ function ConsentScreen({ onComplete }) {
           </svg>
         </div>
 
-        <h1 className="consent-heading">{t("consentHeading")}</h1>
+        <h1 className="consent-heading">
+          <AutoText text="Please share your information and consent" langCode={lang} />
+        </h1>
 
         <label className="consent-label">
-          {t("abhaLabel")}
+          <AutoText text="ABHA ID" langCode={lang} />
           <input
             type="text"
             value={abhaId}
             onChange={handleAbhaChange}
-            placeholder={t("abhaPlaceholder")}
             className="abha-input"
             inputMode="numeric"
           />
         </label>
 
         <div className="consent-info">
-          <p>{t("infoLine1")}</p>
-          <p>{t("infoLine2")}</p>
-          <p>{t("infoLine3")}</p>
+          <p><AutoText text="We will only use your health information for treatment." langCode={lang} /></p>
+          <p><AutoText text="This information will be kept secure and not shared with third parties." langCode={lang} /></p>
+          <p><AutoText text="You can withdraw your consent at any time." langCode={lang} /></p>
         </div>
 
         <label className="consent-checkbox">
@@ -87,13 +87,21 @@ function ConsentScreen({ onComplete }) {
             checked={agreed}
             onChange={(e) => setAgreed(e.target.checked)}
           />
-          {t("consentCheckbox")}
+          <AutoText text="I agree with the information above" langCode={lang} />
         </label>
 
-        {error && <p className="consent-error">{error}</p>}
+        {error === "errorAbha" && (
+          <p className="consent-error"><AutoText text="ABHA ID must be 14 digits" langCode={lang} /></p>
+        )}
+        {error === "errorConsent" && (
+          <p className="consent-error"><AutoText text="You must agree to continue" langCode={lang} /></p>
+        )}
+        {error === "errorGeneric" && (
+          <p className="consent-error"><AutoText text="Something went wrong, please try again" langCode={lang} /></p>
+        )}
 
         <button className="consent-button" onClick={handleContinue}>
-          {t("continueButton")}
+          <AutoText text="Continue" langCode={lang} />
         </button>
       </div>
     </div>

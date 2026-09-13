@@ -1,66 +1,112 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import languages from "./languages";
-import "./LanguageSelect.css";
 
-const mainLanguages = [
-  { code: "en", label: "English" },
-  { code: "hi", label: "हिंदी (Hindi)" },
-];
-
-function LanguageSelect({ onSelect }) {
-  const [selected, setSelected] = useState(null);
+export default function LanguageSelect({ onSelect }) {
+  const { t } = useTranslation();
   const [showOthers, setShowOthers] = useState(false);
 
-  function handleClick(lang) {
-    setSelected(lang.code);
-    onSelect(lang.code);
-  }
+  const mainLanguages = [
+    { code: "en", label: "English" },
+    { code: "hi", label: "हिंदी (Hindi)" },
+  ];
 
-  // "Other" list mein English aur Hindi dobara mat dikhao
   const otherLanguages = languages.filter(
     (lang) => lang.code !== "en" && lang.code !== "hi"
   );
 
   return (
-    <div className="lang-container">
-      <h1 className="lang-heading">
-        Please choose your language
-        <br />
-        अपनी भाषा चुनिए
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "100vh", padding: "20px", background: "#f8f9fa" }}>
+      <h1 style={{ fontSize: "2rem", marginBottom: "30px", color: "#333", textAlign: "center" }}>
+        Please choose your language <br />
+        <span style={{ fontSize: "1.5rem", fontWeight: "normal" }}>अपनी भाषा चुनिए</span>
       </h1>
 
       {!showOthers && (
-        <>
+        <div style={{ display: "flex", flexDirection: "column", gap: "15px", width: "100%", maxWidth: "400px" }}>
           {mainLanguages.map((lang) => (
             <button
               key={lang.code}
-              onClick={() => handleClick(lang)}
-              className={`lang-button ${selected === lang.code ? "selected" : ""}`}
+              onClick={() => onSelect(lang.code)}
+              style={{
+                padding: "16px 20px",
+                fontSize: "1.1rem",
+                fontWeight: "500",
+                borderRadius: "30px",
+                border: "2px solid #0B3B60",
+                background: "#ffffff",
+                color: "#0B3B60",
+                cursor: "pointer",
+                transition: "all 0.2s ease",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 2px 4px rgba(0,0,0,0.05)"
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.background = "#0B3B60";
+                e.currentTarget.style.color = "#ffffff";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.background = "#ffffff";
+                e.currentTarget.style.color = "#0B3B60";
+              }}
             >
-              {selected === lang.code && "✓"} {lang.label}
+              {lang.label}
             </button>
           ))}
+
           <button
-            className="lang-button"
             onClick={() => setShowOthers(true)}
+            style={{
+              padding: "16px 20px",
+              fontSize: "1.1rem",
+              fontWeight: "500",
+              borderRadius: "30px",
+              border: "2px dashed #0B3B60",
+              background: "#ffffff",
+              color: "#0B3B60",
+              cursor: "pointer",
+            }}
           >
             Other / अन्य भाषाएं
           </button>
-        </>
+        </div>
       )}
 
       {showOthers && (
-        <div style={{ maxHeight: "55vh", overflowY: "auto", width: "100%", display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <button className="lang-button" onClick={() => setShowOthers(false)} style={{ borderStyle: "dashed" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "12px", width: "100%", maxWidth: "400px", maxHeight: "55vh", overflowY: "auto" }}>
+          <button
+            onClick={() => setShowOthers(false)}
+            style={{
+              padding: "14px 20px",
+              fontSize: "1rem",
+              borderRadius: "30px",
+              border: "2px dashed #0B3B60",
+              background: "#ffffff",
+              color: "#0B3B60",
+              cursor: "pointer",
+            }}
+          >
             ← Back
           </button>
+
           {otherLanguages.map((lang) => (
             <button
               key={lang.code}
-              onClick={() => handleClick(lang)}
-              className={`lang-button ${selected === lang.code ? "selected" : ""}`}
+              onClick={() => onSelect(lang.code)}
+              style={{
+                padding: "16px 20px",
+                fontSize: "1.1rem",
+                fontWeight: "500",
+                borderRadius: "30px",
+                border: "2px solid #0B3B60",
+                background: "#ffffff",
+                color: "#0B3B60",
+                cursor: "pointer",
+              }}
             >
-              {selected === lang.code && "✓"} {lang.label}
+              {lang.label}
             </button>
           ))}
         </div>
@@ -68,5 +114,3 @@ function LanguageSelect({ onSelect }) {
     </div>
   );
 }
-
-export default LanguageSelect;

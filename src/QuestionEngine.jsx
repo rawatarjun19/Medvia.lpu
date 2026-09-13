@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import questionBank from "./questions";
 import AutoText from "./AutoText";
 import VoiceInput from "./VoiceInput";
@@ -19,9 +19,18 @@ function QuestionEngine({ lang, complaintId, onFinish }) {
 
   const currentQuestion = questions[currentIndex];
 
+  const lastSpokenRef = useRef(null);
+
   useEffect(() => {
+    const speechKey = `${currentQuestion.id}:${lang}`;
+
+    if (lastSpokenRef.current === speechKey) {
+      return;
+    }
+
+    lastSpokenRef.current = speechKey;
     speak(currentQuestion.text.en, lang);
-  }, [currentIndex, lang]);
+  }, [currentIndex, lang, currentQuestion.id]);
 
   function saveAnswerAndNext(value) {
     const updatedAnswers = { ...answers, [currentQuestion.id]: value };

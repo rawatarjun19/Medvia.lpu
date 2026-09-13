@@ -50,8 +50,13 @@ function AboutScreen({ onBack }) {
         </div>
 
         <div className="about-section">
-          <h2>Built For</h2>
-          <p>[Hackathon Name] · Team Medvia</p>
+          <h2>Built By</h2>
+          <ul className="about-list about-credits">
+            <li>Parth Narayan Dubey</li>
+            <li>Arjun Dev</li>
+            <li>Anuj Kumar Yadav</li>
+            <li>Pratham Sachdeva</li>
+          </ul>
         </div>
       </main>
 

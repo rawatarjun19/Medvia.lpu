@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { AYUSH_SECTIONS, calculateDosha } from "./ayushQuestions";
-import { translateBhasini } from "./bhasiniService";
+import { translateText } from "./translateApi";
 
 const getSafeText = (textItem, currentLang) => {
   if (!textItem) return "";
@@ -56,12 +56,12 @@ export default function AyushAssessment({ lang = "en", onComplete }) {
 
       try {
         const qTextBase = getSafeText(currentQuestion.text, lang);
-        const translatedQ = await translateBhasini(qTextBase, "en", lang);
+        const translatedQ = await translateText(qTextBase, lang);
         
         const translatedOpts = await Promise.all(
           currentQuestion.options.map(async (opt) => {
             const rawLabel = getSafeText(opt.label, lang);
-            const translatedLabel = await translateBhasini(rawLabel, "en", lang);
+            const translatedLabel = await translateText(rawLabel, lang);
             return { ...opt, translatedLabel };
           })
         );
